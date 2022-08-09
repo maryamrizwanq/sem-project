@@ -106,6 +106,44 @@
     });
 
     /* ==============================================
+     Get working hours and doctors list-->
+     =============================================== */
+     jQuery(document).ready(function() {
+        $.ajax({url: baseUrl_ + 'workinghours', success: function(result){
+            $("#timing1").html(`<span class="left">${result.workHours[0].day}</span><span class="right">${result.workHours[0].time}</span>`);
+            $("#timing2").html(`<span class="left">${result.workHours[1].day}</span><span class="right">${result.workHours[1].time}</span>`);
+            $("#timing3").html(`<span class="left">${result.workHours[2].day}</span><span class="right">${result.workHours[2].time}</span>`);
+        }});
+
+        $.ajax({url: baseUrl_ + 'doctor', success: function(result){
+            let ddList = result.list, docListHtml = '<option>Doctor Name</option>';
+            for (let i = 0; i < ddList.length && i < 3; i++) {
+                $(`#doc${i}`).html(`
+                    <img src="images/${ddList[i].pictureName}.jpg" alt="" class="img-responsive img-rounded">
+                    <div class="widget-title">
+                        <h3>${ddList[i].name}</h3>
+                        <small>${ddList[i].designation}</small>
+                    </div>
+                    <!-- end title -->
+                    <p>${ddList[i].desc}</p>
+
+                    <div class="footer-social">
+                        <a href="${ddList[i].fbLink}" class="btn grd1"><i class="fa fa-facebook"></i></a>
+                        <a href="${ddList[i].twitterLink}" class="btn grd1"><i class="fa fa-twitter"></i></a>
+                        <a href="${ddList[i].linkedInLink}" class="btn grd1"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                `);                
+            }
+
+            ddList.forEach(element => {
+                docListHtml += `<option>${element.name}</option>`;
+            });
+
+            $("#docList").html(docListHtml);
+        }});
+    });
+
+    /* ==============================================
      CODE WRAPPER -->
      =============================================== */
 
