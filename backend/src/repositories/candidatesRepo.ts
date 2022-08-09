@@ -1,6 +1,6 @@
 import { DbConnMgr_ } from '../common/dbConnMgr'
-import { Candidate } from '../interface/candidate'
-import { Comments } from '../interface/comments';
+import { Doctor } from '../interface/doctor'
+import { WorkingHours } from '../interface/workingHours';
 
 /**
  * @author Muhammad Waris

@@ -1,5 +1,5 @@
 import { DbConnMgr_ } from '../common/dbConnMgr'
-import { Votes } from '../interface/votes'
+import { Votes } from '../interface/appointments'
 
 /**
  * @author Muhammad Waris

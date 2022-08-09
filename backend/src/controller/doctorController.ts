@@ -1,13 +1,9 @@
 import express = require ('express');
-import { Candidate } from '../interface/candidate';
-import { Comments } from '../interface/comments';
+import { Doctor } from '../interface/doctor';
+import { WorkingHours } from '../interface/workingHours';
 import { CandidatesRepo } from '../repositories/candidatesRepo'
 
-/**
- * @author Muhammad Waris
- */
-
-export class CandidateController {
+export class DoctorController {
     getCandidates = async (req, res: express.Response) => {
         try {
             let candRepo =  new CandidatesRepo();

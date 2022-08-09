@@ -12,9 +12,9 @@ const corsOptions = {
   // "Access-Control-Allow-Headers": "*"
 };
 
-import { CandidatesRouter } from './routes/candidatesRouter';
-import { CommentsRouter } from './routes/commentsRouter';
-import { Votes } from './routes/votesRouter';
+import { CandidatesRouter } from './routes/doctorRouter';
+import { WorkingHoursRouter } from './routes/workingHoursRouter';
+import { AppointmentsRouter } from './routes/appointmentsRouter';
 
 export class App {
   public app: any;
@@ -31,9 +31,9 @@ export class App {
     this.app.use(express.static(path.join(__dirname, 'public')));
 
     this.app.use('/',
-      new Votes().router, 
+      new AppointmentsRouter().router, 
       new CandidatesRouter().router,
-      new CommentsRouter().router
+      new WorkingHoursRouter().router
     );
   }
 }

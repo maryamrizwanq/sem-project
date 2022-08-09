@@ -1,12 +1,9 @@
 import express = require ('express');
-import { Votes } from '../interface/votes';
+import { Votes } from '../interface/appointments';
 import { VoteRepo } from '../repositories/voteRepo'
 
-/**
- * @author Muhammad Waris
- */
 
-export class VoteController {
+export class AppointmentsController {
     getVotes = async (req, res: express.Response) => {
         let votesResponseGraph = {
             totalVotes: 0,

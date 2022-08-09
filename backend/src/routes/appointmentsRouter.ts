@@ -1,33 +1,29 @@
 import { ApiRoutes } from '../common/constants';
-import { VoteController } from '../controller/voteController';
+import { AppointmentsController } from '../controller/appointmentsController';
 import { VerifyVoteData } from '../middleware/verifyVoteData';
 
 
-/**
- * @author Muhammad Waris
- */
-
 let express = require('express');
 
-export class Votes {
+export class AppointmentsRouter {
     public router = express.Router();
-    voteController = new VoteController();
+    voteController = new AppointmentsController();
     dataValidator = new VerifyVoteData();
     constructor(){
-        this.initializeGetRoutes();
+        // this.initializeGetRoutes();
         this.initializePostRoutes();
     }
 
-    initializeGetRoutes(){
-        this.router.get(
-            ApiRoutes.VOTE, 
-            this.voteController.getVotes
-        );
-    }
+    // initializeGetRoutes(){
+    //     this.router.get(
+    //         ApiRoutes., 
+    //         this.voteController.getVotes
+    //     );
+    // }
 
     initializePostRoutes(){
         this.router.post(
-            ApiRoutes.VOTE, 
+            ApiRoutes.APPOINTMENT, 
             this.dataValidator.validateVoteRequest,
             this.dataValidator.verifyVoteExists,
             this.voteController.castVote
