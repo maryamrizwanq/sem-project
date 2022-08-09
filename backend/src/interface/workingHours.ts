@@ -1,8 +1,4 @@
-/**
- * @author Muhammad Waris
- */
-
- export interface WorkingHours {
+export interface WorkingHours {
     day: string,
     time: string,
 }

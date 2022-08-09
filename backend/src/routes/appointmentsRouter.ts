@@ -7,7 +7,7 @@ let express = require('express');
 
 export class AppointmentsRouter {
     public router = express.Router();
-    voteController = new AppointmentsController();
+    appController = new AppointmentsController();
     dataValidator = new VerifyVoteData();
     constructor(){
         // this.initializeGetRoutes();
@@ -25,8 +25,8 @@ export class AppointmentsRouter {
         this.router.post(
             ApiRoutes.APPOINTMENT, 
             this.dataValidator.validateVoteRequest,
-            this.dataValidator.verifyVoteExists,
-            this.voteController.castVote
+            // this.dataValidator.verifyVoteExists,
+            this.appController.bookAppointment
         );
     }
 }

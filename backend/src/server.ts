@@ -24,30 +24,30 @@
  var server = http.createServer(appObj.app);
  
 
-const io = require("socket.io")(server, {
-  cors: {
-    origin: "*",
-  },
-});
+// const io = require("socket.io")(server, {
+//   cors: {
+//     origin: "*",
+//   },
+// });
 
-const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
+// const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
 
-io.on("connection", (socket) => {
+// io.on("connection", (socket) => {
 
-// Join a conversation
-const { roomId } = socket.handshake.query;
-socket.join(roomId);
+// // Join a conversation
+// const { roomId } = socket.handshake.query;
+// socket.join(roomId);
 
-// Listen for new messages
-socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
-  io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
-});
+// // Listen for new messages
+// socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
+//   io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
+// });
 
-// Leave the room if the user closes the socket
-socket.on("disconnect", () => {
-  socket.leave(roomId);
-});
-});
+// // Leave the room if the user closes the socket
+// socket.on("disconnect", () => {
+//   socket.leave(roomId);
+// });
+// });
 
  /**
   * Listen on provided port, on all network interfaces.

@@ -1,6 +1,3 @@
-/**
- * @author Muhammad Waris
- */
 
 export interface Doctor {
     id: number,
