@@ -106,6 +106,29 @@
     });
 
     /* ==============================================
+     Book appointment -->
+     =============================================== */
+    jQuery(document).ready(function() {
+        $('#appForm').submit(function() {
+            var action = $(this).attr('action');
+            $.post(baseUrl_ + action, {
+                    name: $('#name').val(),
+                    email: $('#email').val(),
+                    appointment_day: $('#appointment_day').val(),
+                    appointment_time: $('#appointment_time').val(),
+                    patient_message: $('#textarea_message').val(),
+                    doc_id: $('#docList').val()
+                },
+                function(data) {
+                    alert(data.info);
+                    window.location.href = "index.html";
+                }
+            );
+            return false;
+        });
+    });
+
+    /* ==============================================
      Get working hours and doctors list-->
      =============================================== */
      jQuery(document).ready(function() {
@@ -136,7 +159,7 @@
             }
 
             ddList.forEach(element => {
-                docListHtml += `<option>${element.name}</option>`;
+                docListHtml += `<option value="${element.id}">${element.name}</option>`;
             });
 
             $("#docList").html(docListHtml);

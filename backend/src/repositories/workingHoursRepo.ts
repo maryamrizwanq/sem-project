@@ -8,12 +8,4 @@ export class WorkingHoursRepo {
         let [rows, fields] = await DbConnMgr_.executeQuerySync(query, []);
         return rows;
     }
-
-    // async insertComment(name:string, comment: null) {
-    //     let query = "INSERT INTO `vote-so`.`comments` (`commenter_name`, `comment`) " +
-    //         " VALUES (?, ?);";        
-
-    //     let [rows, fields] = await DbConnMgr_.executeQuerySync(query, [name, comment]);
-    //     return rows;
-    // }
 }
