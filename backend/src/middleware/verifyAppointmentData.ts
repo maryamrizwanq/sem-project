@@ -1,7 +1,7 @@
 import { check, validationResult } from "express-validator";
 
-export class VerifyVoteData {
-    validateVoteRequest = async (request, response, next) => {
+export class VerifyAppointmentData {
+    validateAppointmentRequest = async (request, response, next) => {
        
       await check('doc_id').isInt().run(request);
       await check('name').not().isEmpty().isLength({ min: 1, max: 50}).run(request);

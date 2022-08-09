@@ -69,10 +69,11 @@
     $('[data-toggle="tooltip"]').tooltip()
     $('[data-toggle="popover"]').popover()
 
-    /* ==============================================
-     CONTACT -->
-     =============================================== */
+   
     jQuery(document).ready(function() {
+        /* ==============================================
+        CONTACT -->
+        =============================================== */
         $('#contactform').submit(function() {
             var action = $(this).attr('action');
             $("#message").slideUp(750, function() {
@@ -103,12 +104,11 @@
             });
             return false;
         });
-    });
 
-    /* ==============================================
-     Book appointment -->
-     =============================================== */
-    jQuery(document).ready(function() {
+        /* ==============================================
+        Book appointment -->
+        =============================================== */
+
         $('#appForm').submit(function() {
             var action = $(this).attr('action');
             $.post(baseUrl_ + action, {
@@ -126,12 +126,11 @@
             );
             return false;
         });
-    });
 
-    /* ==============================================
-     Get working hours and doctors list-->
-     =============================================== */
-     jQuery(document).ready(function() {
+        /* ==============================================
+        Get working hours and doctors list-->
+        =============================================== */
+
         $.ajax({url: baseUrl_ + 'workinghours', success: function(result){
             $("#timing1").html(`<span class="left">${result.workHours[0].day}</span><span class="right">${result.workHours[0].time}</span>`);
             $("#timing2").html(`<span class="left">${result.workHours[1].day}</span><span class="right">${result.workHours[1].time}</span>`);
